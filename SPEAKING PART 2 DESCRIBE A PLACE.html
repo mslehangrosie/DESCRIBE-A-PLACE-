@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ms Lê Hằng English - IELTS Speaking Part 2: Describe a Place</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fbfcfd;
+            --text-color: #4a5568;
+            --header-bg: linear-gradient(135deg, #e0f2fe 0%, #fcd34d 100%);
+            
+            /* Pastel Theme Palette for Place */
+            --tab-park-bg: #e6f4ea;
+            --tab-park-active: #34a853;
+            --tab-home-bg: #fce8e6;
+            --tab-home-active: #ea4335;
+            --tab-shop-bg: #fef7e0;
+            --tab-shop-active: #fbbc05;
+            --tab-stadium-bg: #e8f0fe;
+            --tab-stadium-active: #4285f4;
+
+            --high-score-color: #d946ef;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: var(--header-bg);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        header h1 { font-family: 'Comfortaa', cursive; color: #334155; font-size: 2.3rem; margin-bottom: 10px; }
+        header p { font-size: 1.1rem; color: #475569; font-weight: 600; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Strategy Box */
+        .strategy-box {
+            background-color: #fff;
+            border-left: 6px solid #fbbc05;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .strategy-flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 10px; font-weight: 700; }
+        .flow-step { background: #f1f5f9; padding: 6px 12px; border-radius: 8px; font-size: 0.9rem; }
+
+        /* Navigation Menu */
+        .tab-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            background: var(--bg-color);
+            padding: 10px 0;
+            z-index: 100;
+        }
+        .tab-btn {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .tab-btn[data-tab="park"] { background-color: var(--tab-park-bg); color: #137333; }
+        .tab-btn[data-tab="park"].active { background-color: var(--tab-park-active); color: #fff; }
+        
+        .tab-btn[data-tab="home"] { background-color: var(--tab-home-bg); color: #c5221f; }
+        .tab-btn[data-tab="home"].active { background-color: var(--tab-home-active); color: #fff; }
+        
+        .tab-btn[data-tab="shop"] { background-color: var(--tab-shop-bg); color: #b06000; }
+        .tab-btn[data-tab="shop"].active { background-color: var(--tab-shop-active); color: #fff; }
+        
+        .tab-btn[data-tab="stadium"] { background-color: var(--tab-stadium-bg); color: #1c3aa9; }
+        .tab-btn[data-tab="stadium"].active { background-color: var(--tab-stadium-active); color: #fff; }
+
+        .tab-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out forwards; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Mapping Topics Box */
+        .mapping-box {
+            background-color: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .mapping-box h4 { color: #1e293b; font-size: 1rem; margin-bottom: 8px; text-transform: uppercase; display: flex; align-items: center; gap: 5px;}
+        .mapping-box ul { list-style-type: none; padding-left: 5px; }
+        .mapping-box li { font-size: 0.9rem; margin-bottom: 4px; font-weight: 600; color: #475569;}
+
+        /* Card Section */
+        .topic-section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 25px 0 15px 0;
+            padding-bottom: 5px;
+            color: #1e293b;
+            border-bottom: 2px dashed #cbd5e1;
+        }
+        
+        /* 4-Square Table Layout for Outline */
+        .outline-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .outline-grid { grid-template-columns: 1fr; }
+        }
+        .outline-cell {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+        }
+        .outline-cell h5 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 4px;
+        }
+        .outline-cell ul { list-style-type: square; padding-left: 20px; font-size: 0.9rem; color: #475569;}
+        .outline-cell li { margin-bottom: 4px; }
+
+        /* Sample Answer Box */
+        .sample-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid #93c5fd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            margin-top: 15px;
+        }
+        .sample-box h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: #1e293b; }
+        .sample-text { font-style: italic; font-size: 1rem; color: #334155; text-align: justify; }
+
+        /* Interactive Popups for Vocab */
+        .vocab-popup {
+            position: relative;
+            background-color: #fae8ff;
+            color: #a21caf;
+            border-bottom: 2px dashed #d946ef;
+            padding: 0 3px;
+            cursor: help;
+            font-style: normal;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+        .vocab-popup::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            background: #1e293b;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-style: normal;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .vocab-popup:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        .tag-info { font-size: 0.85rem; font-weight: 600; display: inline-block; padding: 2px 8px; background: #f1f5f9; border-radius: 12px; margin-bottom: 10px; color: #64748b; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Ms Lê Hằng English</h1>
+        <p>🌿 IELTS Speaking Part 2 - Master Topic: DESCRIBE A PLACE (Interactive Matrix) 🌿</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Quy tắc và chiến lược chung -->
+        <div class="strategy-box">
+            <h3>🎯 Phản xạ Phòng thi Part 2 (150 từ ~ 1.5 - 2 phút)</h3>
+            <div class="strategy-flow">
+                <span class="flow-step">Intro: Paraphrase Đề bài trực tiếp</span> ➜ 
+                <span class="flow-step">Body: Triển khai 4 ô vuông phản xạ độc lập (Không nhìn bài mẫu)</span> ➜ 
+                <span class="flow-step">Conclusion: Chốt hạ cảm xúc</span>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="park">TAB 1: THE GREEN ESCAPE (Công viên Thống Nhất)</button>
+            <button class="tab-btn" data-tab="home">TAB 2: THE MINIMALIST HOME (Nhà bạn thân)</button>
+            <button class="tab-btn" data-tab="shop">TAB 3: THE PASTEL BOUTIQUE (Cửa hàng thời trang)</button>
+            <button class="tab-btn" data-tab="stadium">TAB 4: THE ENERGETIC LANDMARK (Sân vận động Mỹ Đình)</button>
+        </div>
+
+        <!-- ==================== TAB 1: THE GREEN ESCAPE ==================== -->
+        <div id="park" class="tab-content active">
+            <div class="mapping-box">
+                <h4>📌 Đề gốc áp dụng chung ý tưởng Thống Nhất Park:</h4>
+                <ul>
+                    <li>• Describe a natural place / Describe a quiet place you like to go</li>
+                    <li>• Describe a place you went to and an outdoor activity you did there</li>
+                    <li>• Describe a place you would like to visit in your free time</li>
+                    <li>• Describe a boring place (Biến tấu: Người khác chê buồn chán vì không có công nghệ, nhưng mình lại thích vì nó yên tĩnh)</li>
+                </ul>
+            </div>
+
+            <div class="topic-section-title">Đề mẫu: Describe a quiet / natural place you like to go to</div>
+            <div class="tag-info">Target Band: 7.0+ | Topic đặc trị phản xạ tự nhiên</div>
+
+            <!-- Bảng Ô vuông Outline Phản Xạ -->
+            <div class="outline-grid">
+                <div class="outline-cell">
+                    <h5>1. Where the place is & How you know it</h5>
+                    <ul>
+                        <li>Thong Nhat Park – suburb of Hanoi (capital of VN)</li>
+                        <li>First knew it via best friend's camping birthday party</li>
+                        <li>Left a strong impression on me</li>
+                        <li>Frequency: Go there once/twice a month (weekends)</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>2. What it looks like (Atmosphere)</h5>
+                    <ul>
+                        <li>Picturesque and tranquil place</li>
+                        <li>Full of lush trees, vibrant flowers, green spaces</li>
+                        <li>Fresh air & slow-paced life (people walking/relaxing)</li>
+                        <li>See friendly wildlife (squirrels, birds, cats)</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>3. What you do there (Outdoor activities)</h5>
+                    <ul>
+                        <li>Set up a small tent, sit on the grass, chat, take photos</li>
+                        <li>Read a peaceful book, listen to acoustic music</li>
+                        <li>Simply watch people and friendly animals around</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>4. Why you love it & Conclusion</h5>
+                    <ul>
+                        <li>Escape from the hustle and bustle of city life</li>
+                        <li>Allows me to unwind, clear my mind & recharge energy</li>
+                        <li>A quiet place that I truly treasure & highly recommend</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bài Mẫu Hoàn Chỉnh -->
+            <div class="sample-box">
+                <h4>📝 Bài mẫu hoàn chỉnh (Sample Answer):</h4>
+                <div class="sample-text">
+                    "I’d like to talk about a quiet natural place that I really enjoy going to, which is Thong Nhat Park. This park is located in the suburb of Hanoi, and I first knew about it when my best friend invited me for a small camping trip on her birthday. Since then, it has become my favorite spot to visit in my free time. <br><br>
+                    Thong Nhat Park is a <span class="vocab-popup" data-tooltip="Đẹp như tranh vẽ và yên bình">picturesque and tranquil</span> area. It is full of lush trees, flowers, and open green spaces, which make the atmosphere incredibly fresh. People there seem to lead a <span class="vocab-popup" data-tooltip="Nhịp sống chậm rãi">slow-paced life</span>, walking, exercising, or simply relaxing. What I find most special is that you can spot many friendly animals like squirrels and birds, making the scenery even more peaceful and lively. <br><br>
+                    Whenever I visit, especially on weekends, I love doing outdoor activities like setting up a tent, sitting on the grass to read a book, or just enjoying the fresh air. This place allows me to <span class="vocab-popup" data-tooltip="Trốn chạy khỏi sự hối hả và nhộn nhịp">escape from the hustle and bustle</span> of city life and <span class="vocab-popup" data-tooltip="Giải tỏa tâm trí, thư giãn đầu óc">clear my mind</span>. Overall, it is a peaceful haven that I truly treasure, and I always recommend it to anyone looking to unwind."
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB 2: THE MINIMALIST HOME ==================== -->
+        <div id="home" class="tab-content">
+            <div class="mapping-box">
+                <h4>📌 Đề gốc áp dụng chung ý tưởng Bestie's House:</h4>
+                <ul>
+                    <li>• Describe the home of someone you know well and that you often visit</li>
+                    <li>• Describe a home that you like to visit but do not want to live in (Biến tấu: Do nhà nhiều đồ decor dễ vỡ hoặc quá hồng, không hợp style sống lâu dài của mình)</li>
+                    <li>• Describe a place where you saw many animals (Biến tấu: Nhà bạn thân có bộ sưu tập thú nuôi độc đáo/nhiều chó mèo)</li>
+                </ul>
+            </div>
+
+            <div class="topic-section-title">Đề mẫu: Describe the home of someone you know well and often visit</div>
+            <div class="tag-info">Target Band: 7.0+ | Tải từ vựng tả nội thất ấm cúng</div>
+
+            <!-- Bảng Ô vuông Outline Phản Xạ -->
+            <div class="outline-grid">
+                <div class="outline-cell">
+                    <h5>1. Whose house it is & How often you visit</h5>
+                    <ul>
+                        <li>My best friend’s house – visit once or twice a month</li>
+                        <li>Go there when we have free time to study or relax together</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>2. Exterior & Interior Style</h5>
+                    <ul>
+                        <li>Decorated in a minimalist style (mainly pink and white)</li>
+                        <li>Reflects her cute and lovely personality</li>
+                        <li>Extremely tidy, clean, and well-organized</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>3. Highlights inside the house (Books/Animals)</h5>
+                    <ul>
+                        <li>Basic furniture: TV, small table, princess-style bed</li>
+                        <li>Large collection of cute stuffed animals & real pets (cats/puppies)</li>
+                        <li>Huge bookshelf filled with various novels and English textbooks</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>4. Your feelings & Conclusion</h5>
+                    <ul>
+                        <li>Borrowing books helps broaden my horizons</li>
+                        <li>Feels warm, cozy, and highly comfortable</li>
+                        <li>Hope to own a similar home in the future</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bài Mẫu Hoàn Chỉnh -->
+            <div class="sample-box">
+                <h4>📝 Bài mẫu hoàn chỉnh (Sample Answer):</h4>
+                <div class="sample-text">
+                    "Today, I’d like to describe the home of someone I know very well and often visit, which is my best friend’s house. I usually go there a few times a month, especially when we want to study or unwind together over the weekend. <br><br>
+                    Her home is beautifully decorated in a <span class="vocab-popup" data-tooltip="Phong cách tối giản">minimalist style</span>, mainly with pastel pink and white colors, which perfectly reflects her lovely personality. The house is always <span class="vocab-popup" data-tooltip="Sạch sẽ và ngăn nắp">spotlessly clean and tidy</span>, with everything neatly arranged. What impresses me the most is her room, which features a massive bookshelf filled with various novels, detective stories, and English materials. I really enjoy borrowing books from her because it helps <span class="vocab-popup" data-tooltip="Mở rộng tầm mắt/kiến thức">broaden my horizons</span>. <br><br>
+                    Additionally, her house is like a mini sanctuary where she keeps a large collection of cute stuffed animals and even some friendly pet cats. It is such a <span class="vocab-popup" data-tooltip="Ấm cúng và dễ chịu">warm and cozy</span> place that makes me feel completely at ease. Although I love visiting it to relax, I wouldn't want to live there permanently because the delicate decor requires too much careful maintenance. Overall, it's a wonderful place that I always look forward to visiting."
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB 3: THE PASTEL BOUTIQUE ==================== -->
+        <div id="shop" class="tab-content">
+            <div class="mapping-box">
+                <h4>📌 Đề gốc áp dụng chung ý tưởng Clothes Store:</h4>
+                <ul>
+                    <li>• Describe a shop/store you enjoy visiting</li>
+                    <li>• Describe a place where you received excellent customer service</li>
+                </ul>
+            </div>
+
+            <div class="topic-section-title">Đề mẫu: Describe a shop/store you enjoy visiting (Excellent Service)</div>
+            <div class="tag-info">Target Band: 7.0+ | Từ vựng chủ đề mua sắm và dịch vụ hành vi</div>
+
+            <!-- Bảng Ô vuông Outline Phản Xạ -->
+            <div class="outline-grid">
+                <div class="outline-cell">
+                    <h5>1. Where the shop is & How often you go</h5>
+                    <ul>
+                        <li>A local clothing boutique near my house (vibrant shopping area)</li>
+                        <li>Very convenient to access</li>
+                        <li>Visit once every few months (special occasions like Tet holiday)</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>2. What the shop looks like</h5>
+                    <ul>
+                        <li>Beautiful pastel tone decoration, cozy lightings</li>
+                        <li>Well-arranged clothing racks, easy to find items</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>3. Why you enjoy visiting (Customer Service)</h5>
+                    <ul>
+                        <li>Excellent customer service – staff are friendly, polite, helpful</li>
+                        <li>Patiently suggest clothes that suit my body shape and style</li>
+                        <li>Specific example: Patiently looked for the perfect shoe size without rushing me</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>4. Your feelings & Conclusion</h5>
+                    <ul>
+                        <li>Makes me feel comfortable, valued, and satisfied</li>
+                        <li>A retail shop that I would highly recommend to my family</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bài Mẫu Hoàn Chỉnh -->
+            <div class="sample-box">
+                <h4>📝 Bài mẫu hoàn chỉnh (Sample Answer):</h4>
+                <div class="sample-text">
+                    "I’d like to talk about a shop that I really enjoy visiting, which is a local clothing boutique located in a busy shopping area not far from my house. Because of its <span class="vocab-popup" data-tooltip="Vị trí thuận tiện">convenient location</span>, I usually drop by once every few months, especially when I need to shop for important occasions like the Tet holiday. <br><br>
+                    The store is beautifully designed with soft pastel colors and warm lighting, creating a very welcoming atmosphere. However, the main reason I keep coming back is their <span class="vocab-popup" data-tooltip="Dịch vụ chăm sóc khách hàng xuất sắc">excellent customer service</span>. The staff members are incredibly polite, professional, and attentive. They always take the time to listen to my preferences and patiently suggest outfits that perfectly suit my body shape. <br><br>
+                    I remember a time when I was struggling to find the right shoe size. The sales assistant didn't show any annoyance; instead, she <span class="vocab-popup" data-tooltip="Không hề hối thúc tôi">didn't rush me at all</span> and went back to the stockroom multiple times until she found the perfect fit. This level of dedication always leaves a positive impression on me. Shopping there always makes me feel comfortable and completely satisfied, which is why I constantly recommend it to my friends."
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== TAB 4: THE ENERGETIC LANDMARK ==================== -->
+        <div id="stadium" class="tab-content">
+            <div class="mapping-box">
+                <h4>📌 Đề gốc áp dụng chung ý tưởng Mỹ Đình Stadium:</h4>
+                <ul>
+                    <li>• Describe a popular place for sports that you’ve been to</li>
+                    <li>• Describe a city you enjoyed visiting / a place you travelled to to recommend</li>
+                    <li>• Describe an important river/lake/landmark in your country (Cận biên biến tấu không gian rộng lớn)</li>
+                </ul>
+            </div>
+
+            <div class="topic-section-title">Đề mẫu: Describe a popular place for sports / city place you enjoyed visiting</div>
+            <div class="tag-info">Target Band: 7.0+ | Trải nghiệm dịch thuật / tình nguyện viên chuyên nghiệp</div>
+
+            <!-- Bảng Ô vuông Outline Phản Xạ -->
+            <div class="outline-grid">
+                <div class="outline-cell">
+                    <h5>1. What and where the place is</h5>
+                    <ul>
+                        <li>My Dinh National Stadium – central part of Hanoi</li>
+                        <li>Visited a few years ago as a volunteer during SEA Games</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>2. What you did there (Activities)</h5>
+                    <ul>
+                        <li>Supported football players, teams, and coaches</li>
+                        <li>Arranged resting areas, prepared meals/drinks, behind-the-scenes tasks</li>
+                        <li>Cheered passionately during intense matches</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>3. A memorable highlight (Interpreter)</h5>
+                    <ul>
+                        <li>Worked as a live interpreter between coaches</li>
+                        <li>Challenging but extremely rewarding task</li>
+                        <li>Boosted my self-confidence immensely</li>
+                    </ul>
+                </div>
+                <div class="outline-cell">
+                    <h5>4. Your feelings & Conclusion</h5>
+                    <ul>
+                        <li>The atmosphere was incredibly energetic and exciting</li>
+                        <li>An unforgettable landmark experience that made me proud</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bài Mẫu Hoàn Chỉnh -->
+            <div class="sample-box">
+                <h4>📝 Bài mẫu hoàn chỉnh (Sample Answer):</h4>
+                <div class="sample-text">
+                    "Today, I'd like to describe a popular landmark and sports venue that I enjoyed visiting, which is My Dinh Stadium, located in Hanoi. I went there a few years ago when I had the precious opportunity to work as a member of a volunteer group during the SEA Games event. <br><br>
+                    During the tournament, I participated in various behind-the-scenes activities to support the international football players and their coaching staff. My duties included organizing logistics, arranging resting areas, and preparing meals. What made this experience <span class="vocab-popup" data-tooltip="Đặc biệt đáng nhớ">especially memorable</span> was that I got to challenge myself as a <span class="vocab-popup" data-tooltip="Thông dịch viên trực tiếp">live interpreter</span>, facilitating communication between foreign and local coaches. <br><br>
+                    Although the task was quite demanding, it was <span class="vocab-popup" data-tooltip="Đáng giá, xứng đáng công sức">highly rewarding</span> and made me feel proud of myself. The overall atmosphere at the stadium was always <span class="vocab-popup" data-tooltip="Tràn đầy năng lượng và hào hứng">incredibly energetic and exciting</span> with thousands of fans cheering. Visiting this place helped me gain immense confidence and valuable life experience. It is definitely an amazing place that I would highly recommend to anyone visiting the capital city."
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Tab Switching Logic
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                contents.forEach(c => c.classList.remove('active'));
+                const targetId = tab.getAttribute('data-tab');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
